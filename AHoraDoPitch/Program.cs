@@ -15,13 +15,18 @@ namespace AHoraDoPitch
 
             while(resposta != "N")
             {
+                Console.Clear();
                 Console.WriteLine("A Hora do Pitch");
                 Console.Write("Informe a duração do Pitch.: ");
                 int tempo = Convert.ToInt32(Console.ReadLine());
 
+                Console.Write("Informe o efeito sonoro de 1 até 500.: ");
+                int efeitoSonoro = Convert.ToInt32(Console.ReadLine());
+                alarme.EfeitoSonoro = efeitoSonoro;
+
                 alarme.Tempo = tempo;
                 alarme.StartAlarm();
-
+                Console.WriteLine("Que pena! O seu tempo acabou!");
                 Console.WriteLine("Executar o programa novamente (S/N).: ");
                 resposta = Console.ReadLine().ToUpper();
             }

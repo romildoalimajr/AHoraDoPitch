@@ -12,11 +12,19 @@ namespace AHoraDoPitch
 		public Alarm() 
 		{ 
 			this.Tempo = 3; // três minutos
+			this.EfeitoSonoro = 200;
 		}
 
-		public Alarm(int tempo)
+        public Alarm(int tempo)
+        {
+            this.Tempo = tempo;
+            
+        }
+
+        public Alarm(int tempo, int efeitoSonoro)
 		{
 			this.Tempo = tempo;
+			this.EfeitoSonoro  = efeitoSonoro;
 		}
 
 		//controla o tempo do pitch
@@ -28,10 +36,17 @@ namespace AHoraDoPitch
 			set { this.tempo = 1000 * 60 * value; }
 		}
 
+		public int EfeitoSonoro
+		{
+			get;
+			set;
+		}
+
+
 		public void StartAlarm()
 		{
 			Thread.Sleep(this.Tempo);
-			Console.Beep(250,1000);
+			Console.Beep(this.EfeitoSonoro,1000);
 		}
 
 	}
